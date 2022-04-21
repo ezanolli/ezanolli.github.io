@@ -10,7 +10,7 @@ var radarDisplayOptions = {
 var radar = L.tileLayer.wms(radarUrl, radarDisplayOptions).addTo(map);
 var weatherAlertsUrl = 'https://api.weather.gov/alerts/active?region_type=land';
 $.getJSON(weatherAlertsUrl, function(data) {
-  L.getJSON(data, {
+  L.geoJSON(data, {
   style: function(feature){
   var alertColor = 'orange';
   if (feature.properties.severity === 'Severe') alertColor = 'red';
